@@ -1,0 +1,85 @@
+/* Product Page Styling with Logo Colors */
+
+/* Override CSS variables for product page */
+.product-page-header {
+  --header-border: rgba(2, 185, 250, 0.2);
+  --button-bg: linear-gradient(135deg, rgba(2, 211, 255, 0.08), rgba(0, 90, 173, 0.08));
+  --button-border: #02B9FA;
+  --button-color: #005AAD;
+  --text-primary: #01226B;
+}
+
+.product-page-footer {
+  --footer-border: rgba(2, 185, 250, 0.2);
+  --footer-shadow: 0 -4px 20px rgba(2, 185, 250, 0.1);
+  --price-color: #01226B;
+}
+
+/* Product Info Overrides */
+.product-brand-badge {
+  color: #005AAD !important;
+  background: rgba(2, 185, 250, 0.08) !important;
+  border-color: rgba(2, 185, 250, 0.3) !important;
+}
+
+.product-title {
+  color: #01226B !important;
+}
+
+.product-rating-star {
+  color: #02B9FA !important;
+}
+
+.product-price-card {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.03), rgba(0, 90, 173, 0.03)) !important;
+}
+
+.product-spec-card {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.03), rgba(0, 90, 173, 0.03)) !important;
+}
+
+.product-spec-icon {
+  color: #02B9FA !important;
+}
+
+/* Product Images */
+.product-image-main {
+  border-color: #02B9FA !important;
+}
+
+.product-thumbnail-active {
+  border-color: #02D3FF !important;
+}
+
+.product-thumbnail {
+  border-color: #02B9FA !important;
+}
+
+.product-thumbnail:hover {
+  opacity: 1 !important;
+  border-color: #02D3FF !important;
+}
+
+/* Product Details Tabs */
+.product-tab-active {
+  background: linear-gradient(to right, #02B9FA, #005AAD) !important;
+  color: #fff !important;
+  border-color: #02B9FA !important;
+}
+
+.product-tab {
+  color: #60758E !important;
+  border-color: #02B9FA !important;
+  background: #F6F8FC !important;
+}
+
+.product-spec-group-header {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.08), rgba(0, 90, 173, 0.08)) !important;
+}
+
+.product-spec-group-title {
+  color: #01226B !important;
+}

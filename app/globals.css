@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'FormaDJR';
+  src: url('/FormaDJRArabicText-Medium-Testing.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DINNextArabic';
+  src: url('/DINNextLTArabic-Bold-4.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #01226B;
+  
+  /* ألوان اللوجو */
+  --logo-cyan: #02D3FF;
+  --logo-navy: #01226B;
+  --logo-blue: #02B9FA;
+  --logo-dark-blue: #023A89;
+  --logo-medium-blue: #005AAD;
+  
+  /* الألوان الأصلية */
+  --color-1: #F6F8FC;
+  --color-2: #01226B;
+  --color-3: #60758E;
+  --color-4: #02B9FA;
+  --color-5: #595593;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
+body {
+  font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+
+input, textarea, select {
+  color: #01226B;
+}
+
+/* ── Custom Phone Input ── */
+.custom-phone-input {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  overflow: visible;
+  transition: border-color 0.15s;
+  background: #fff;
+  direction: ltr;
+}
+.custom-phone-input:focus-within {
+  border-color: #8BA8D2;
+}
+.custom-phone-input.phone-error {
+  border-color: #fca5a5;
+  background: #fff5f5;
+}
+.custom-phone-input .PhoneInputCountry {
+  display: contents;
+}
+.custom-phone-input .PhoneInputInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #01226B;
+  background: transparent;
+  font-family: monospace;
+  min-width: 0;
+}
+.custom-phone-input .PhoneInputInput::placeholder {
+  color: #d1d5db;
+  font-family: inherit;
+}
+@media (max-width: 639px) {
+  .custom-phone-input .PhoneInputInput { font-size: 13px; padding: 8px 10px; }
+}
+
+/* country dropdown — no scrollbar */
+.country-dropdown {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.country-dropdown::-webkit-scrollbar { display: none; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+.scrollbar-visible::-webkit-scrollbar { height: 6px; }
+.scrollbar-visible::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+.scrollbar-visible::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.scrollbar-visible::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+.scrollbar-visible { scrollbar-width: thin; scrollbar-color: #cbd5e1 #f1f5f9; }
+
+/* ── Product Card ── */
+.card-shadow {
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.03),
+    0 4px 12px rgba(0,0,0,0.05),
+    0 12px 32px rgba(0,0,0,0.04);
+}
+
+/* ── Cart Button ── */
+.cart-btn {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: #ffffff;
+  color: #01226B;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.025em;
+  padding: 11px 0;
+  border-radius: 14px;
+  border: 1.5px solid #01226B;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+@media (min-width: 640px) {
+  .cart-btn { font-size: 0.82rem; padding: 12px 0; }
+}
+.cart-btn:hover {
+  background: #01226B;
+  color: #ffffff;
+}
+.cart-btn:active {
+  background: #01226B;
+  color: #ffffff;
+}
+.cart-btn.added {
+  background: #01226B;
+  color: #ffffff;
+  border-color: #01226B;
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-down { animation: fade-in-down 0.3s ease; }
+
+/* Swiper reviews pagination */
+.swiper-pagination-bullet {
+  background: var(--color-4);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+.swiper-pagination-bullet-active {
+  background: var(--color-4);
+  width: 22px;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+@keyframes fade-in-out {
+  0%   { opacity: 0; transform: translateY(8px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  90%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+.animate-fade-in-out { animation: fade-in-out 3s ease; }
+
+/* Telecom logos scroll */
+@keyframes scroll-logos {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-logos {
+  animation: scroll-logos 18s linear infinite;
+  will-change: transform;
+}
+.animate-scroll-logos:hover {
+  animation-play-state: paused;
+}
+
+
+
+.cart-btn:disabled, .cart-btn[disabled] {
+  background: #f3f4f6 !important;
+  color: #9ca3af !important;
+  border-color: #e5e7eb !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  opacity: 0.8 !important;
+  box-shadow: none !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Product Page Styling with Logo Colors
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Product Page Header & Navigation */
+.product-page header {
+  border-color: rgba(2, 185, 250, 0.2) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.product-page header button {
+  border-color: #02B9FA !important;
+  color: #005AAD !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.08), rgba(0, 90, 173, 0.08)) !important;
+}
+
+.product-page header button:hover {
+  box-shadow: 0 2px 8px rgba(2, 185, 250, 0.2) !important;
+}
+
+/* Product Page Mobile Footer */
+.product-page .fixed.bottom-0 {
+  border-color: rgba(2, 185, 250, 0.2) !important;
+  box-shadow: 0 -4px 20px rgba(2, 185, 250, 0.1) !important;
+}
+
+/* Product Title & Text */
+[data-product-title="true"] {
+  color: #01226B !important;
+}
+
+[data-product-price="true"] {
+  color: #01226B !important;
+}
+
+/* Product Brand Badge */
+[data-product-badge="true"] {
+  color: #005AAD !important;
+  background: rgba(2, 185, 250, 0.08) !important;
+  border-color: rgba(2, 185, 250, 0.3) !important;
+}
+
+/* Product Rating Stars */
+[data-rating-star="active"] {
+  color: #02B9FA !important;
+}
+
+/* Product Price Card */
+[data-product-price-card="true"] {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.03), rgba(0, 90, 173, 0.03)) !important;
+}
+
+/* Product Spec Cards */
+[data-product-spec="true"] {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.03), rgba(0, 90, 173, 0.03)) !important;
+}
+
+[data-product-spec-icon="true"] {
+  color: #02B9FA !important;
+}
+
+/* Product Images */
+[data-product-image-main="true"] {
+  border-color: #02B9FA !important;
+}
+
+[data-product-thumbnail-active="true"] {
+  border-color: #02D3FF !important;
+}
+
+[data-product-thumbnail="true"] {
+  border-color: #02B9FA !important;
+}
+
+[data-product-thumbnail="true"]:hover {
+  opacity: 1 !important;
+  border-color: #02D3FF !important;
+}
+
+/* Product Details Tabs */
+[data-product-tab-active="true"] {
+  background: linear-gradient(to right, #02B9FA, #005AAD) !important;
+  color: #fff !important;
+  border-color: #02B9FA !important;
+}
+
+[data-product-tab="true"] {
+  color: #60758E !important;
+  border-color: #02B9FA !important;
+  background: #F6F8FC !important;
+}
+
+/* Product Specification Groups */
+[data-spec-group-header="true"] {
+  border-color: #02B9FA !important;
+  background: linear-gradient(135deg, rgba(2, 211, 255, 0.08), rgba(0, 90, 173, 0.08)) !important;
+}
+
+[data-spec-group-title="true"] {
+  color: #01226B !important;
+}
